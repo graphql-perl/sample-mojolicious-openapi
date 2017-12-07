@@ -1,0 +1,10 @@
+set -e
+container='graphqlperl/sample-openapi'
+prereq=${container}-prereq
+if [ "$1" = 'prereq' ]; then
+  docker build -f Dockerfile.prereq -t $prereq .
+  docker push $prereq
+else
+  docker build -t $container .
+  docker push $container
+fi
