@@ -7,7 +7,7 @@ get '/' => sub {
 };
 
 plugin GraphQL => {
-  convert => [ 'OpenAPI', 'cpantesters-v3.json' ],
+  convert => [ 'OpenAPI', $ENV{OPENAPI_SCHEMA} || 'cpantesters-v3.json' ],
   graphiql => 1,
 };
 

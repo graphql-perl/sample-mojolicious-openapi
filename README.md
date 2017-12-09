@@ -42,3 +42,12 @@ To run the app's container, exposing its internal port 80 as your port 5000:
 ```shell
 docker run -p 5000:80 graphqlperl/sample-openapi
 ```
+
+To make it look at and proxy to a different OpenAPI schema, set the
+`OPENAPI_SCHEMA` environment variable for it:
+
+```shell
+docker run -p 5000:80 -e \
+  OPENAPI_SCHEMA='https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/json/petstore-expanded.json' \
+  graphqlperl/sample-openapi
+```
