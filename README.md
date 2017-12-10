@@ -48,6 +48,21 @@ To make it look at and proxy to a different OpenAPI schema, set the
 
 ```shell
 docker run -p 5000:80 -e \
-  OPENAPI_SCHEMA='https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/json/petstore-expanded.json' \
+  OPENAPI_SCHEMA='http://petstore.swagger.io/v2/swagger.json' \
   graphqlperl/sample-openapi
+```
+
+With that schema, try this query:
+
+```graphql
+{
+  getPetById(petId: 457453558) {
+    category {
+      id
+      name
+    }
+    name
+    photoUrls
+  }
+}
 ```
